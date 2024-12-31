@@ -83,3 +83,86 @@
 // console.log(reverseWordsInSentence("Hello world this is TypeScript"));
 
 //! find First Non Repeated Character 
+//& Learn New syntex of for loop (for (const char of stringArr)) and why this things use becase we need result and i don't get with this (foreach) or (map) 
+// const findFirstNonRepeatedCharacter = (str: string): string | null => {
+//     let occurs: {[key: string]: number} = {};
+//     let stringArr: Array<string> = [];
+//     stringArr = str.trim().split("")
+//     stringArr.forEach((char:string)=>{
+//         if (char != " ") {
+//             if (char in occurs) {
+//                 occurs[char] += 1
+//             }
+//             else{
+//                 occurs[char] = 1;
+//             }
+//         }
+//     })
+//     for(const char of stringArr){
+//         if (occurs[char] === 1) {
+//             return char
+//         }
+//     }
+//     return null
+// }
+
+// console.log(findFirstNonRepeatedCharacter("wiss"));
+
+//! is Palindrome
+//& Learn '/\s+/g' is " " this is regex use remove all space
+// const isPalindrome = (str: string):boolean => {
+//     let normalStr: string = str.toLowerCase().trim().split("").join("").replace(/\s+/g, "")
+//     let reverseStr: string = normalStr.split("").reverse().join("")
+//     return normalStr === reverseStr
+    
+// }
+// console.log(isPalindrome("A man a plan a canal Panama"));
+
+//! length Of Longest Substring
+//& Learn how to use (Set) and {sliding Window} 
+// const lengthOfLongestSubstring = (str: string):number => {
+//     let window: Set<string> = new Set();
+//     let left: number = 0;
+//     let right: number = 0;
+//     let maxLength: number = 0;
+//     for (right = 0; right < str.length; right++){
+//         while (window.has(str[right])) {
+//             window.delete(str[left])
+//             left++;
+//         }
+//         window.add(str[right])
+//         maxLength = Math.max(maxLength, right - left + 1); // trouble to understand
+//     }
+//     return maxLength
+// }
+
+// console.log(lengthOfLongestSubstring("abcabcbb"))
+
+//! find Missing Number
+//& Learn a new algo think but i don't apply this into my code [Missing number=Sum from 1 to n−Sum of elements in array]
+// const findMissingNumber = (arr:Array<number>):number => {
+//     let val:number = arr.reduce((sum:number, val:number):number=>sum += val, 0)
+//     let count:number = 0
+//     for(let i = 0; i <= arr[arr.length-1]; i++){
+//         count += i
+//     }
+//     return count - val
+// }
+// console.log(findMissingNumber([1, 2, 4, 6, 3, 7, 8]));
+// console.log(findMissingNumber([1, 2, 3, 5])); 
+
+//! group Anagrams
+// const groupAnagrams = (arr:Array<string>): Array<string> => {
+//     let anagram: {[key:string]: string} = {};
+//     arr.forEach((str:string)=>{
+//         let sortStr:string = str.split("").sort().join("")
+//         if (anagram[sortStr]) {
+//             anagram[sortStr].push(str);
+//         }
+//         else{
+//             anagram[sortStr] = [str];
+//         }
+//     })
+//     return Object.values(anagram);
+// }
+// console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]));
