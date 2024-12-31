@@ -179,7 +179,7 @@ console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]));
    ```bash
    tsc filename.ts
    ```
-4. Run the compiled JavaScript:
+4. Direct Run the TypeScript File:
    ```bash
    npx tsx index.ts
    ```
